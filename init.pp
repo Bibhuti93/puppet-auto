@@ -1,4 +1,4 @@
 package { 'git':
-          ensure => present
+          ensure => present,
        }
 
