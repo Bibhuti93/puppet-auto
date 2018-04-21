@@ -1,4 +1,5 @@
 #Added a comment
+#Aur ek comment
 file { 'remove-main-svn-directory':
 		ensure => absent,
 		path => '/etc/puppetlabs/puppet/modules/puppet-auto',
