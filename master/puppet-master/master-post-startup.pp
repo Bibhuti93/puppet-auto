@@ -1,3 +1,6 @@
+#This is a post-startup script and will run once after instance startup.
+#Chnages made to this file will not reflect unless instance is restarted or file is executed manually.
+
 #Enable autosign
 file { '/opt/puppet/bin/gce_autosigner.rb':
     ensure => file,
@@ -20,4 +23,11 @@ package { 'git':
           ensure => present,
        }
 
-#Create cron job to pull master & agent GIT repos
+#Create cron job to pull/refresh master & agent GIT repos
+cron { 'cron-git-pull':
+		name => 'cron-git-pull',
+		ensure => present,
+		command => '/opt/puppet/bin apply /etc/puppetlabs/puppet/modules/master-manifest/refresh-svn.pp',
+		hour => '*',
+		minute => '*/2',
+	}
