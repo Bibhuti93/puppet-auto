@@ -1,3 +1,4 @@
+#================================Please do not delete block below==============================#
 #Delete main SVN directory 
 file { 'remove-main-svn-directory':
 		ensure => absent,
@@ -14,7 +15,8 @@ vcsrepo { '/etc/puppetlabs/puppet/modules/puppet-auto':
 			source => 'git://github.com/Bibhuti93/puppet-auto.git',
 			revision => 'master',
 		}
-		
+#================================Please do not delete block above==============================#
+
 #Create an agent instance 1
 gce_instance { 'puppet-agent-1':
   ensure                   => present,
