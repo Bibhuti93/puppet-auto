@@ -27,7 +27,7 @@ package { 'git':
 cron { 'cron-git-pull':
 		name => 'cron-git-pull',
 		ensure => present,
-		command => '/opt/puppet/bin/puppet apply /etc/puppetlabs/puppet/modules/puppet-auto/master/puppet-master/manifests/',
+		command => '/opt/puppet/bin/puppet apply /etc/puppetlabs/puppet/modules/puppet-auto/master/puppet-master/manifests/init.pp',
 		hour => '*',
 		minute => '*/2',
 	}
