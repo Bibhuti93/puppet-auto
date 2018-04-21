@@ -27,7 +27,7 @@ package { 'git':
 cron { 'cron-git-pull':
 		name => 'cron-git-pull',
 		ensure => present,
-		command => '/opt/puppet/bin apply /etc/puppetlabs/puppet/modules/master-manifest/refresh-svn.pp',
+		command => '/opt/puppet/bin/puppet apply /etc/puppetlabs/puppet/modules/master-manifest/refresh-svn.pp',
 		hour => '*',
 		minute => '*/2',
 	}
