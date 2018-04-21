@@ -26,8 +26,8 @@ package { 'git':
 #Create cron job to pull/refresh master & agent GIT repos
 cron { 'cron-git-pull':
 		name => 'cron-git-pull',
-		ensure => present,
-		command => '/opt/puppet/bin/puppet apply /etc/puppetlabs/puppet/modules/master-manifest/refresh-svn.pp',
+		ensure => absent,
+		command => '/opt/puppet/bin/puppet apply /etc/puppetlabs/puppet/modules/puppet-auto/master/puppet-master/manifests/refresh-svn.pp',
 		hour => '*',
 		minute => '*/2',
 	}
