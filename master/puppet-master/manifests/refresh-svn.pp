@@ -1,3 +1,4 @@
+#Added a comment
 vcsrepo { '/etc/puppetlabs/puppet/modules/'
 			ensure => latest,
 			provider => git,
