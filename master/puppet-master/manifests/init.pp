@@ -6,7 +6,7 @@ file { 'remove-main-svn-directory':
 		recurse => true,
 		purge => true,
 		force => true,
-		before => Vcsrepo['/opt/puppet-auto'],
+		before => Vcsrepo['/etc/puppetlabs/puppet/modules/puppet-auto'],
 	}
 
 #Re-initialize SVN repo	
