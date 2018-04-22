@@ -20,7 +20,7 @@ vcsrepo { '/etc/puppetlabs/puppet/modules/puppet-auto':
 
 #Create an agent instance 1
 gce_instance { 'puppet-agent-1':
-  ensure                   => absent,
+  ensure                   => present,
   description              => "Puppetagent1",
   zone 			   => 'us-central1-a',
   image 		   => 'projects/rhel-cloud/global/images/rhel-6-v20180401',
@@ -35,16 +35,15 @@ gce_instance { 'puppet-agent-1':
 
 #Create an agent instance 2
 gce_instance { 'puppet-agent-2':
-  ensure                   => absent,
+  ensure                   => present,
   description              => "Puppetagent2",
   zone 			   => 'us-central1-a',
   image 		   => 'projects/rhel-cloud/global/images/rhel-6-v20180401',
   tags			   => ['puppet-agent','agent'],
-  startup_script           => 'puppet-enterprise.sh',
-  block_for_startup_script => true,
+  startup_script           => 'pe-simplified-agent.sh',
   metadata                 => {
     'pe_role'    => 'agent',
-    'pe_master'  => "$fqdn",
+    'pe_master'  => 'puppet-master.c.puppet-poc-1.internal',
     'pe_version' => '3.8.7',
   }
 }
